@@ -170,14 +170,322 @@
 
         <section data-markdown>
           <script type="text/template">
-            ## Slide
+            ## SVG Shapes
 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna.
+            - Rectangles
+            - Circles
+            - Ellipses
+            - Straight Lines
+            - Polylines
+            - Polygons
+          </script>
+        </section>
 
-            - List Item
-            - List Item
-            - List Item
+        <section data-markdown>
+          <script type="text/template">
+            ## Rectangle
+            <br>
+            ```html
+            <svg>
+              <rect width="200"
+                    height="100"
+                    fill="#BBC42A" />
+            </svg>
+            ```
+            <br>
+            [Example](http://codepen.io/jonitrythall/pen/525df2422b0ebc54c71a48d27534ea5e)
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Rectangle
+            <br>
+            Options:
+
+            `width` - width
+
+            `height` - height
+
+            `fill` - fill color
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Rectangle
+            <br>
+            Additional options:
+
+            `x` - horizontal position within workspace
+
+            `y` - vertical position within workspace
+
+            `rx` - horizontal radius (for rounded corners)
+
+            `ry` - vertical radius (for rounded corners)
+
+            `stroke` - border color
+
+            `stroke-width` - border width
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Circle
+            <br>
+            ```html
+            <svg>
+              <circle cx="75"
+                      cy="75"
+                      r="75"
+                      fill="#ED6E46" />
+            </svg>
+            ```
+            <br>
+            [Example](http://codepen.io/jonitrythall/pen/088bbada7eed6739d09715666b945141)
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Circle
+            <br>
+            Options:
+
+            `cx` - horizontal location of circle center within workspace
+
+            `cy` - vertical location of circle center within workspace
+
+            `r` - size of circle radius
+
+            `fill` - fill color
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Ellipse
+            <br>
+            ```html
+            <svg>
+              <ellipse cx="100"
+                       cy="100"
+                       rx="100"
+                       ry="50"
+                       fill="#7AA20D" />
+            </svg>
+            ```
+            <br>
+            [Example](http://codepen.io/jonitrythall/pen/8ec26dac6d5b64bc663c03f01c5d60e0)
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Ellipse
+            <br>
+            Options:
+
+            `cx` - horizontal location of shape center within workspace
+
+            `cy` - vertical location of shape center within workspace
+
+            `rx` - horizontal radius
+
+            `ry` - vertical radius
+
+            `fill` - fill color
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Line
+            <br>
+            ```html
+            <svg>
+              <line x1="5"
+                    y1="5"
+                    x2="100"
+                    y2="100"
+                    stroke="#765373"
+                    stroke-width="8"/>
+            </svg>
+            ```
+            <br>
+            [Example](http://codepen.io/jonitrythall/pen/cc2e9717926d08889837208467e392a0)
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Line
+            <br>
+            Options:
+
+            `x1` - horizontal start of line
+
+            `y1` - vertical start of line
+
+            `x2` - horizontal end of line
+
+            `y2` - vertical end of line
+
+            `stroke` - line color
+
+            `stroke-width` - line width
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Polyline (open shape)
+            <br>
+            ```html
+            <svg>
+              <polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160"
+                        fill="white"
+                        stroke="#BBC42A"
+                        stroke-width="6"
+                        stroke-linejoin="round" />
+            </svg>
+            ```
+            <br>
+            [Example](http://codepen.io/jonitrythall/pen/558d73574360c37158f4ad03214c7eb9)
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Polyline (open shape)
+            <br>
+            Options:
+
+            `points` - coordinate points along x and y axes
+
+            `fill` - fill color
+
+            `stroke` - line color
+
+            `stroke-width` - line width
+
+            `stroke-linejoin` - shape of angle point (rounded or sharp)
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Polygon (closed shape)
+            <br>
+            ```html
+            <svg>
+              <polygon points="50,5 100,5 125,30 125,80 100,105 50,105 25,80 25,30"
+                       fill="#ED6E46" />
+            </svg>
+            ```
+            <br>
+            [Example](http://codepen.io/jonitrythall/pen/fc0d7f048d266c6845b8e1f28b80eefc)
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Polygon (closed shape)
+            <br>
+            Options:
+
+            `points` - coordinate points along x and y axes
+
+            `fill` - fill color
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Paths
+
+            - An SVG `path` element is an outline of a shape
+
+            - It follow this general markup pattern, where the `d` attribute includes data about the shape
+
+            ```html
+            <svg>
+              <path d="<path data specifics>" />
+            </svg>
+            ```
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Paths
+
+            - Path element for a green lime:
+
+            ```html
+            <svg width="258px" height="184px">
+              <path
+                fill="#7AA20D"
+                stroke="#7AA20D"
+                stroke-width="9"
+                stroke-linejoin="round"
+                d="M248.761,92c0,9.801-7.93,17.731-17.71,17.731c-0.319,0-0.617,
+                   0-0.935-0.021c-10.035,37.291-51.174,65.206-100.414,65.206
+                   c-49.261,0-90.443-27.979-100.435-65.334c-0.765,0.106-1.531,
+                   0.149-2.317,0.149c-9.78,0-17.71-7.93-17.71-17.731  c0-9.78,
+                   7.93-17.71,17.71-17.71c0.787,0,1.552,0.042,2.317,0.149C39.238,
+                   37.084,80.419,9.083,129.702,9.083    c49.24,0,90.379,27.937,
+                   100.414,65.228h0.021c0.298-0.021,0.617-0.021,0.914-0.021C240.831,
+                   74.29,248.761,82.22,248.761,92z" />
+            </svg>
+            ```
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+           <br>
+           <br>
+           <img src="http://pix.iemoji.com/images/emoji/apple/ios-9/256/confounded-face.png" />
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ###But don't worry!
+
+
+            That wasn't written by a human.
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ###SVG Exports
+
+            - Vector creation software (like Illustrator or Sketch) can export a vector graphic into SVG format
+
+            - This file can be run through an SVG optimizer to eliminate extra space and code, and decrease file size
+              - http://petercollingridge.appspot.com/svg-optimiser
+              - https://github.com/svg/svgo
           </script>
         </section>
 

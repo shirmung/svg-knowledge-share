@@ -547,19 +547,231 @@
 
         <section data-markdown>
           <script type="text/template">
-            ## Slide
+            ## Markup
 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna.
-
-            - List Item
-            - List Item
-            - List Item
+            ```
+            <svg width="20" height="20">
+              <text
+                x="xpos"
+                y="ypos"
+                fill="#000000"
+                font-size="20"
+                font-family="monospace">A</text>
+            </svg>
+            ```
           </script>
         </section>
 
         <!-- end the text element -->
 
+        <section data-markdown>
+          <script type="text/template">
+            ## Basic attributes - positioning
+            _Absolute_
+
+            ```
+            x - The start of text along the X axis
+            y - The start of text along the Y axis
+            ```
+
+            _Relative (when used with `<tspan>`)_
+            ```
+            dx - The start of text along the X axis
+            dy - The start of text along the Y axis
+            ```
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Basic attributes - rotate
+            - `rotate` - Rotates the entire element
+
+            If you use one number, it rotates each letter the same amount
+
+            ```
+            EX: rotate="20"
+            ```
+
+            If you use a comma separated list of numbers, each corresponding letter will be rotated according to the lists values
+
+            ```
+            rotate="20, 56, 34, 12"
+            ```
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Basic attributes - transform
+
+            Will transform the svg based on the value supplied to the property.
+
+            ```
+            transform="rotate(40)"
+            ```
+
+            Other possible values are:
+            - translate(x y)
+            - scale(x y)
+            - skewX()
+            - skewY()
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Basic attributes
+            ### textLength & lengthAdjust
+
+            Extends the length between each letter
+
+            ```
+            textLength="10"
+            ```
+
+            Ex: http://jsbin.com/bibegon/1/edit?html,output
+          </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Basic attributes
+          ### textLength & lengthAdjust
+
+          lengthAdjust applies to the spacing between the characters
+
+          ```
+          lengthAdjust="spacing"
+          ```
+
+          Other possible values are:
+          - spacingAndGlyphs - which changes the width of the letters
+
+          Ex: http://jsbin.com/joxepiq/1/edit?html,output
+
+        </script>
+      </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Elements - `<tspan>`
+
+            Allows you to seperate words and give them positioning relative to its parent
+
+            ```
+            <svg width="100" height="100">
+              <text fill="#000000" x="0" y="20" font-size="20" font-family="'Leckerli One', cursive">
+                Lorem
+                <tspan dx="-15" dy="10" fill="#ff0000">Ipsum</tspan>
+              </text>
+            </svg>
+            ```
+
+            dx & dy can accept multiple values like rotate.
+
+            The letters positioning will reflect each value.
+
+            EX: http://jsbin.com/doqonu/2/edit?html,output
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Spacing
+            ### Kerning, letter-spacing & word-spacing
+
+            kerning applies to the kerning tables included in the font
+
+            ```
+            kerning="auto" (default, doesn't have to be specified)
+            ```
+
+            Other can accept a value:
+
+            ```
+            kerning="20"
+            ```
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Spacing
+            ### Kerning, letter-spacing & word-spacing
+
+            letter-spacing works like kerning but is supplemental and used in conjunction with kerning.
+
+            ```
+            letter-spacing="normal|20|inherit"
+            ```
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Spacing
+            ### Kerning, letter-spacing & word-spacing
+
+            word-spacing changes the spacing between words.
+
+            ```
+            word-spacing="normal|20|inherit"
+            ```
+
+            Ex: http://jsbin.com/yexuqoc/1/edit?html,output
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Basic attributes
+            ### text-decoration
+
+            text-decoration works like the css property
+
+            ```
+            text-decoration="normal|inherit|underline|line-through"
+            ```
+
+            Ex: http://jsbin.com/xadoxo/2/edit?html,output
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## path
+
+            Path allows a text to be written along a curved line
+
+            ```
+            <svg>
+              <defs>
+                <path
+                  id="someID"
+                  d="[software generated path]" />
+              </defs>
+              <use xlink:href="#someID" fill="" stroke="#000000" stroke-width="num">
+              <text>
+                <textPath xlink:href="#someID" otherProps...>Lorem Ipsum</textPath>
+              </text>
+            </svg>
+            ```
+
+            ```
+            xlink:href must match the path id property
+            startOffset refers to the offset distance where the text should start along the path - optional
+            <use /> element allows you to style the path itself, or its invisible - optional
+            ```
+
+            EX: http://jsbin.com/setise/1/edit?html,output
+
+          </script>
+        </section>
         <!-- start advanced features -->
 
         <section data-markdown>

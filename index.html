@@ -31,6 +31,25 @@
           </script>
         </section>
 
+        <section data-markdown>
+          <script type="text/template">
+            ## Scalable Vector Graphics (SVG):
+
+            - language for describing 2D graphics consisting of paths, images, and text in XML
+            - graphics are able to be scaled and resized without losing image quality
+            - several different ways to include SVG, for example: `<img>`, `background-image`, or inline (within HTML)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Writing SVG Inline
+
+            - editable (vs using `<img>` or `background-image`)
+            - graphics software helps export SVG to embed into HTML
+          </script>
+        </section>
+
         <!-- start document organization -->
 
         <section data-markdown>
@@ -41,14 +60,101 @@
 
         <section data-markdown>
           <script type="text/template">
-            ## Slide
+            `<svg>`
 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna.
+            - element that holds all SVG elements
+            - used to nest a standalone SVG fragment within HTML
+            - `width`, `height`, `preserveAspectRatio`, `viewBox` attributes establish canvas and coordinate system
+          </script>
+        </section>
 
-            - List Item
-            - List Item
-            - List Item
+        <section data-markdown>
+          <script type="text/template">
+            `<g>`
+
+            - element for grouping related graphics together (organization!)
+            - allows for manipulation of the group as a whole (animations!)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            `<use>`
+
+            - element that allows reuse of already rendered graphics (DRY!)
+            - `x`, `y`, `width`, `height` attributes define the mapping location details of the graphic
+            - `xlink:href` attribute calls on the element to be reused
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ```
+            <svg>
+              <g id="#smalltalk">
+                 <!-- dog paths -->
+              </g>
+
+              <use x="50" y="50" xlink:href="#smalltalk">
+            </svg>
+            ```
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            `<defs>`
+
+            - element that defines graphics that are referenced and rendered through the `xlink:href` attribute
+            - no visual output until referenced by unique `id`
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ```
+            <svg>
+              <defs>
+                <linearGradient id="funky-cool-stuff">
+                  <stop offset="0%" stop-color="#BBC42A">
+                  <stop offset="100%" stop-color="#765373">
+                </linearGradient>
+              </defs>
+
+              <rect width="50" height="50" fill="url(#funky-cool-stuff)">
+            </svg>
+            ```
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Note on Stacking Order
+
+            - `z-index` ain't no thang in this world
+            - the order in which SVG elements are stacked depends on their placement within the SVG fragment
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ```
+            <svg>
+              <g id="grapes">
+                <!-- stem paths -->
+                <!-- grape paths -->
+                <!-- leaf paths -->
+              </g>
+
+              <g id="watermelon">
+                <!-- outside paths (green) -->
+                <!-- inside paths (red) -->
+                <!-- seeds paths -->
+              </g>
+            </svg>
+            ```
+
+            <img src="http://svgpocketguide.com/book/images/stackedfirst.png">
           </script>
         </section>
 

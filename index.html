@@ -31,12 +31,16 @@
           </script>
         </section>
 
+        <!-- start intro -->
+
         <section data-markdown>
           <script type="text/template">
             ## Scalable Vector Graphics (SVG):
 
             - language for describing 2D graphics consisting of paths, images, and text in XML
+
             - graphics are able to be scaled and resized without losing image quality
+
             - several different ways to include SVG, for example: `<img>`, `background-image`, or inline (within HTML)
           </script>
         </section>
@@ -46,9 +50,12 @@
             ## Writing SVG Inline
 
             - editable (vs using `<img>` or `background-image`)
+
             - graphics software helps export SVG to embed into HTML
           </script>
         </section>
+
+        <!-- end intro -->
 
         <!-- start document organization -->
 
@@ -63,7 +70,9 @@
             `<svg>`
 
             - element that holds all SVG elements
+
             - used to nest a standalone SVG fragment within HTML
+
             - `width`, `height`, `preserveAspectRatio`, `viewBox` attributes establish canvas and coordinate system
           </script>
         </section>
@@ -73,6 +82,7 @@
             `<g>`
 
             - element for grouping related graphics together (organization!)
+
             - allows for manipulation of the group as a whole (animations!)
           </script>
         </section>
@@ -82,16 +92,18 @@
             `<use>`
 
             - element that allows reuse of already rendered graphics (DRY!)
+
             - `x`, `y`, `width`, `height` attributes define the mapping location details of the graphic
+
             - `xlink:href` attribute calls on the element to be reused
           </script>
         </section>
 
         <section data-markdown>
           <script type="text/template">
-            ```
+            ```html
             <svg>
-              <g id="#smalltalk">
+              <g id="smalltalk">
                  <!-- dog paths -->
               </g>
 
@@ -106,13 +118,14 @@
             `<defs>`
 
             - element that defines graphics that are referenced and rendered through the `xlink:href` attribute
+
             - no visual output until referenced by unique `id`
           </script>
         </section>
 
         <section data-markdown>
           <script type="text/template">
-            ```
+            ```html
             <svg>
               <defs>
                 <linearGradient id="funky-cool-stuff">
@@ -131,14 +144,15 @@
           <script type="text/template">
             ## Note on Stacking Order
 
-            - `z-index` ain't no thang in this world
+            - `z-index` doesn't work here
+
             - the order in which SVG elements are stacked depends on their placement within the SVG fragment
           </script>
         </section>
 
         <section data-markdown>
           <script type="text/template">
-            ```
+            ```html
             <svg>
               <g id="grapes">
                 <!-- stem paths -->
@@ -735,7 +749,11 @@
 
         <section data-markdown>
           <script type="text/template">
-            reference: http://svgpocketguide.com/book/
+            References:
+
+            - http://svgpocketguide.com/book/
+
+            - http://courseware.codeschool.com/you-me-svg/CodeSchool-YouMeSvg.pdf
           </script>
         </section>
       </div>
